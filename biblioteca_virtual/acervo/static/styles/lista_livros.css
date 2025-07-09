@@ -10,6 +10,9 @@ body {
 
 /* Container principal da página de acervo */
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 90%;
     max-width: 1200px;
     margin: 20px auto;
@@ -29,7 +32,7 @@ h1 {
 /* Estilo para a lista de livros */
 .book-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Layout em grade responsivo */
+    grid-template-columns: 1fr 1fr 1fr; /* Layout em grade responsivo */
     gap: 20px;
     list-style: none;
     padding: 0;
@@ -76,4 +79,19 @@ h1 {
 
 .btn:hover {
     background-color: #0056b3; /* Cor mais escura ao passar o mouse */
+    cursor: pointer;
+}
+
+.sair-btn {
+    color: #ffffff;
+    background-color: #c11d1d;
+}
+
+.sair-btn:hover {
+    background-color: #a21717;
+}
+
+.no-livro {
+    grid-column: 1 / -1;
+    text-align: center;
 }

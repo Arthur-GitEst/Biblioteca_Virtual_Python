@@ -6,10 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
-  <link rel="stylesheet" href="{% static 'styles/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/lista_livros.css' %}">
 </head>
 <body>
-  <h1>Nossa Biblioteca</h1>
+  <div class="container">
+    <h1>Acervo da Biblioteca</h1>
+    <h1>Bem vindo, {{user.username}}!</h1>
+
+    
+    <ul class="book-list">
+      {% for livro in livros %}
+        <li class="book-item">
+          {% if livro.capa %}
+            <img src="{{ livro.capa.url }}" alt="Capa de {{ livro.titulo }}" width="100">
+          {% endif %}
+          <h3>{{ livro.titulo }}</h3>
+          <p>{{ livro.autor }}</p>
+          <a href="{% url 'ler_livro' livro.id %}" class="btn">Comece a Ler</a>
+        </li>
+      {% empty %}
+        <li class="no-livro"><p>Nenhum Livro Cadastrado</p></li>
+      {% endfor %}
+    </ul>
+
+    <form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+      <button class="sair-btn btn" type="submit">
+        Sair
+      </button>
+    </form>
+  </div>
+  <!-- <h1>Nossa Biblioteca</h1>
 <p>Bem-vindo, {{ user.username }}! | <form action="{% url 'logout' %}" method="post" style="display: inline;">
     {% csrf_token %}
     <button type="submit" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer; padding:0; font-size:inherit;">
@@ -29,7 +56,7 @@
   {% empty %}
     <li>Nenhum livro cadastrado ainda.</li>
   {% endfor %}
-</ul>
+</ul> -->
 </body>
 </html>
 
