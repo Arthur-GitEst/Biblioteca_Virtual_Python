@@ -1,0 +1,4 @@
+<h1>Lendo: {{ livro.titulo }}</h1>
+<a href="{% url 'lista_livros' %}">Voltar para a biblioteca</a>
+<hr>
+<embed src="{{ livro.arquivo_pdf.url }}" type="application/pdf" width="100%" height="800px" />

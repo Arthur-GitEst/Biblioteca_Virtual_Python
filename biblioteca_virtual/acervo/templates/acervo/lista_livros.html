@@ -1,0 +1,16 @@
+<h1>Nossa Biblioteca</h1>
+<p>Bem-vindo, {{ user.username }}! | <a href="{% url 'logout' %}">Sair</a></p>
+<ul>
+  {% for livro in livros %}
+    <li>
+      <a href="{% url 'ler_livro' livro.id %}">
+        {% if livro.capa %}
+          <img src="{{ livro.capa.url }}" alt="Capa de {{ livro.titulo }}" width="100">
+        {% endif %}
+        {{ livro.titulo }} - {{ livro.autor }}
+      </a>
+    </li>
+  {% empty %}
+    <li>Nenhum livro cadastrado ainda.</li>
+  {% endfor %}
+</ul>
