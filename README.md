@@ -8,3 +8,7 @@ Autenticar como Admin:
 1. Coloque /admin no fim da url
 2. Usuário: Admin
    Senha: senha123
+
+Autenticar como Usuário:
+Usuário: Usuario
+Senha: biblioteca
